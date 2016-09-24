@@ -4,41 +4,37 @@
 
 (require 'package)
 
+;; List packages to download
+(setq package-list '(evil
+		     evil-leader
+		     evil-nerd-commenter
+		     helm
+		     powerline))
+
 ;; Set the archive sources
-(setq package-archives '(("gnu"          . "http://elpa.gnu.org/packages/")
+(setq package-archives '(("elpa"         . "http://tromey.com/elpa/")
+			 ("gnu"          . "http://elpa.gnu.org/packages/")
                          ("org"          . "http://orgmode.org/elpa/")
                          ("marmalade"    . "http://marmalade-repo.org/packages/")
-                         ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(defun ensure-package-installed (&rest packages)
-  "Assure every package is installed, ask for installation if it’s not.
-   Return a list of installed packages or nil for every skipped package."
-  (mapcar
-   (lambda (package)
-     (if (package-installed-p package)
-       nil
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-         (package-install package)
-         package)))
-   packages))
+;; Activate all the packages (in particular autoloads)
+(package-initialize)
 
 ;; Make sure to have downloaded archive description.
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
-;; Activate installed packages
-(package-initialize)
-
-;; List of packages to ensure are installed and active
-(ensure-package-installed 'evil-mode
-			  'evil-leader
-			  'evil-nerd-commenter
-			  'helm
-			  'powerline)
+;; Install missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 ;;
 ;; Package Settings
 ;;
+
+(evil-mode 1)
 
 ;; evil-leader bindings
 (evil-leader/set-leader "<SPC>")
