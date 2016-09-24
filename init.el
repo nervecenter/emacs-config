@@ -9,7 +9,8 @@
 		     evil-leader
 		     evil-nerd-commenter
 		     helm
-		     powerline
+		     ;;powerline
+		     smart-mode-line
 		     zenburn-theme
 		     smooth-scrolling))
 
@@ -45,6 +46,9 @@
 ;; Package Settings
 ;;
 
+;; - Helm -
+(helm-mode 1)
+
 ;; - Evil -
 (evil-mode 1)
 (require 'evil-leader)
@@ -54,17 +58,20 @@
 (global-evil-leader-mode)
 
 (evil-leader/set-key "d" 'kill-buffer
-		     "f" 'find-file
-		     ;;"o" recent files
-		     "b" 'switch-to-buffer
-		     ;;"m" buffers and recents mixed
-		     ;;"t" split window
-		     ;;"w" close all windows but current
+		     "f" 'helm-find-files
+		     "o" 'helm-mini
+		     "b" 'helm-buffers-list
+		     "m" 'helm-mini
+		     "t" 'split-window-right
+		     "w" 'delete-other-windows
 		     )
 
 ;; - Powerline -
-(require 'powerline)
-(powerline-default-theme)
+;(require 'powerline)
+;(powerline-default-theme)
+
+;; - Smart Mode Line -
+(sml/setup)
 
 ;; - Smooth Scrolling -
 (setq scroll-margin 5
