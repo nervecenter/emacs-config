@@ -9,7 +9,9 @@
 		     evil-leader
 		     evil-nerd-commenter
 		     helm
-		     powerline))
+		     powerline
+		     zenburn-theme
+		     smooth-scrolling))
 
 ;; Set the archive sources
 (setq package-archives '(("elpa"         . "http://tromey.com/elpa/")
@@ -31,10 +33,21 @@
     (package-install package)))
 
 ;;
+;; Emacs Settings
+;;
+
+(set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline")
+(load-theme 'zenburn t)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+;;
 ;; Package Settings
 ;;
 
+;; - Evil -
 (evil-mode 1)
+(require 'evil-leader)
 
 ;; evil-leader bindings
 (evil-leader/set-leader "<SPC>")
@@ -49,7 +62,11 @@
 		     ;;"w" close all windows but current
 		     )
 
-;; Powerline settings
+;; - Powerline -
 (require 'powerline)
-(powerline-evil-vim-color-theme)
-(display-time-mode t)
+(powerline-default-theme)
+
+;; - Smooth Scrolling -
+(setq scroll-margin 5
+      scroll-conservatively 9999
+      scroll-step 1)
