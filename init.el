@@ -14,8 +14,7 @@
 		     ido-vertical-mode
 		     smart-mode-line
 		     smooth-scrolling
-		     zenburn-theme
-		     meaculpa-theme))
+		     zenburn-theme))
 
 ;; Set the archive sources
 (setq package-archives '(("elpa"         . "http://tromey.com/elpa/")
@@ -41,8 +40,7 @@
 ;;
 
 (set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline")
-;(load-theme 'zenburn t)
-(load-theme 'meaculpa t)
+(load-theme 'zenburn t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -97,11 +95,9 @@
 ;; Keybinds
 ;;
 
-; (dolist (key '("\C-a" "\C-b" "\C-c" "\C-d" "\C-e" "\C-f" "\C-g"
-;                "\C-h" "\C-k" "\C-l" "\C-n" "\C-o" "\C-p" "\C-q"
-;                "\C-t" "\C-u" "\C-v" "\C-x" "\C-z" "\e"))
-;   (global-unset-key key))
+;(dolist (key '("\C-n" "\C-m" "\C-p"))
+;  (global-unset-key key))
 
-; (global-set-key (kbd "\C-n") 'previous-buffer)
-; (global-set-key (kbd "\C-m") 'next-buffer)
-; (global-set-key (kbd "\C-p") 'helm-mini)
+;(global-set-key (kbd "\C-n") 'previous-buffer)
+;(global-set-key (kbd "\C-m") 'next-buffer)
+;(global-set-key (kbd "\C-p") 'ido-recentf-open)
