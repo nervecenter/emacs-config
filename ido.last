@@ -1,0 +1,26 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/Chris/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/Chris/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/Chris/.emacs.d/" (22503 4074 0 0) "README.md" "init.el" "ido.last~" "ido.last" "elpa/" "auto-save-list/" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/Chris/" (22500 19620 0 0) "vim-config/" "sigildb.txt" "Public/" "Pictures/" "News/" "Music/" "Movies/" "Mail/" "Library/" "emacs-config/" "echo" "Downloads/" "dominions4/" "Documents/" "Desktop/" "date" "Applications/" ".vscode/" ".vimrc" ".viminfo" ".vim/" ".Trash/" ".ssh/" ".spacemacs" ".rnd" ".python_history" ".psql_history" ".oracle_jre_usage/" ".nuget/" ".nrepl-history" ".npm/" ".newsrc-dribble" ".m2/" ".local/" ".lmmsrc.xml" ".lein/" ".jmonkeyplatform-installer/" ".hgignore_global" ".gitkraken/" ".gitignore_global" ".gitconfig" ".ghc/" ".gem/" ".emacs.d/" ".electron/" ".DS_Store" ".dotnet/" ".dbeaver/" ".datazenit-electron/" ".datazenit/" ".cups/" ".config/" ".CFUserTextEncoding" ".cache/" ".cabal/" ".boot/" ".bash_sessions/" ".bash_profile" ".bash_history" ".atom/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

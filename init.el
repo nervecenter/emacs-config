@@ -8,11 +8,14 @@
 (setq package-list '(evil
 		     evil-leader
 		     evil-nerd-commenter
-		     helm
-		     ;;powerline
+		     ido
+		     ido-ubiquitous
+		     ido-better-flex
+		     ido-vertical-mode
 		     smart-mode-line
+		     smooth-scrolling
 		     zenburn-theme
-		     smooth-scrolling))
+		     meaculpa-theme))
 
 ;; Set the archive sources
 (setq package-archives '(("elpa"         . "http://tromey.com/elpa/")
@@ -38,7 +41,8 @@
 ;;
 
 (set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline")
-(load-theme 'zenburn t)
+;(load-theme 'zenburn t)
+(load-theme 'meaculpa t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -46,8 +50,24 @@
 ;; Package Settings
 ;;
 
-;; - Helm -
-(helm-mode 1)
+;; - RecentF -
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+
+;; - Ido -
+(require 'ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+(ido-vertical-mode 1)
+
+(defun ido-recentf-open ()
+  "Use `ido-completing-read' to find a recent file."
+  (interactive)
+  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+      (message "Opening file...")
+    (message "Aborting")))
 
 ;; - Evil -
 (evil-mode 1)
@@ -58,17 +78,12 @@
 (global-evil-leader-mode)
 
 (evil-leader/set-key "d" 'kill-buffer
-		     "f" 'helm-find-files
-		     "o" 'helm-mini
-		     "b" 'helm-buffers-list
-		     "m" 'helm-mini
+                     "f" 'find-file
+                     "b" 'ido-switch-buffer
+		     "r" 'ido-recentf-open
 		     "t" 'split-window-right
 		     "w" 'delete-other-windows
 		     )
-
-;; - Powerline -
-;(require 'powerline)
-;(powerline-default-theme)
 
 ;; - Smart Mode Line -
 (sml/setup)
@@ -77,3 +92,16 @@
 (setq scroll-margin 5
       scroll-conservatively 9999
       scroll-step 1)
+
+;;
+;; Keybinds
+;;
+
+; (dolist (key '("\C-a" "\C-b" "\C-c" "\C-d" "\C-e" "\C-f" "\C-g"
+;                "\C-h" "\C-k" "\C-l" "\C-n" "\C-o" "\C-p" "\C-q"
+;                "\C-t" "\C-u" "\C-v" "\C-x" "\C-z" "\e"))
+;   (global-unset-key key))
+
+; (global-set-key (kbd "\C-n") 'previous-buffer)
+; (global-set-key (kbd "\C-m") 'next-buffer)
+; (global-set-key (kbd "\C-p") 'helm-mini)
