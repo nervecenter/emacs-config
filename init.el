@@ -6,19 +6,19 @@
 
 ;; List packages to download
 (setq package-list '(evil
-		     evil-leader
-		     evil-nerd-commenter
-		     ido
-		     ido-ubiquitous
-		     ido-better-flex
-		     ido-vertical-mode
-		     smart-mode-line
-		     smooth-scrolling
-		     zenburn-theme))
+             evil-leader
+             evil-nerd-commenter
+             ido
+             ido-ubiquitous
+             ido-better-flex
+             ido-vertical-mode
+             smart-mode-line
+             smooth-scrolling
+             zenburn-theme))
 
 ;; Set the archive sources
 (setq package-archives '(("elpa"         . "http://tromey.com/elpa/")
-			 ("gnu"          . "http://elpa.gnu.org/packages/")
+                         ("gnu"          . "http://elpa.gnu.org/packages/")
                          ("org"          . "http://orgmode.org/elpa/")
                          ("marmalade"    . "https://marmalade-repo.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")))
@@ -78,10 +78,10 @@
 (evil-leader/set-key "d" 'kill-buffer
                      "f" 'find-file
                      "b" 'ido-switch-buffer
-		     "r" 'ido-recentf-open
-		     "t" 'split-window-right
-		     "w" 'delete-other-windows
-		     )
+             "r" 'ido-recentf-open
+             "t" 'split-window-right
+             "w" 'delete-other-windows
+             )
 
 ;; - Smart Mode Line -
 (sml/setup)
