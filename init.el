@@ -18,7 +18,7 @@
 (setq package-archives '(("elpa"         . "http://tromey.com/elpa/")
 			 ("gnu"          . "http://elpa.gnu.org/packages/")
                          ("org"          . "http://orgmode.org/elpa/")
-                         ("marmalade"    . "http://marmalade-repo.org/packages/")
+                         ("marmalade"    . "https://marmalade-repo.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
 ;; Activate all the packages (in particular autoloads)
