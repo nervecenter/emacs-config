@@ -14,7 +14,9 @@
              ido-vertical-mode
              smart-mode-line
              smooth-scrolling
-             zenburn-theme))
+             zenburn-theme
+	     relative-line-numbers
+	     rainbow-delimiters))
 
 ;; Set the archive sources
 (setq package-archives '(("elpa"         . "http://tromey.com/elpa/")
@@ -43,6 +45,7 @@
 (load-theme 'zenburn t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(show-paren-mode t)
 
 ;;
 ;; Package Settings
@@ -73,18 +76,30 @@
 
 ;; evil-leader bindings
 (evil-leader/set-leader "<SPC>")
+(setq evil-leader/in-all-states 1)
 (global-evil-leader-mode)
 
-(evil-leader/set-key "d" 'kill-buffer
-                     "f" 'find-file
-                     "b" 'ido-switch-buffer
-             "r" 'ido-recentf-open
-             "t" 'split-window-right
-             "w" 'delete-other-windows
-             )
+(evil-leader/set-key
+  "d" 'kill-buffer
+  "f" 'find-file
+  "b" 'ido-switch-buffer
+  "r" 'ido-recentf-open
+  "t" 'split-window-right
+  "w" 'delete-other-windows
+  "n" 'previous-buffer
+  "m" 'next-buffer
+  )
 
 ;; - Smart Mode Line -
 (sml/setup)
+
+;; - Rainbow Delimiters -
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;; - Relative Line Numbers -
+(add-hook 'prog-mode-hook 'relative-line-numbers-mode t)
+(add-hook 'prog-mode-hook 'line-number-mode t)
+(add-hook 'prog-mode-hook 'column-number-mode t)
 
 ;; - Smooth Scrolling -
 (setq scroll-margin 5
