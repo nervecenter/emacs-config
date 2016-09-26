@@ -71,13 +71,15 @@
     (message "Aborting")))
 
 ;; - Evil -
-(evil-mode 1)
-(require 'evil-leader)
 
 ;; evil-leader bindings
-(evil-leader/set-leader "<SPC>")
+(require 'evil-leader)
 (setq evil-leader/in-all-states 1)
+(evil-leader/set-leader "<SPC>")
+(evil-mode nil)
 (global-evil-leader-mode)
+(evil-mode 1)
+(kill-buffer "*Messages*")
 
 (evil-leader/set-key
   "d" 'kill-buffer
