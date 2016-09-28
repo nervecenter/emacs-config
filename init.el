@@ -19,9 +19,9 @@
 	     rainbow-delimiters))
 
 ;; Set the archive sources
-(setq package-archives '(("elpa"         . "http://tromey.com/elpa/")
-                         ("gnu"          . "http://elpa.gnu.org/packages/")
-                         ("org"          . "http://orgmode.org/elpa/")
+(setq package-archives '(("elpa"         . "https://tromey.com/elpa/")
+                         ("gnu"          . "https://elpa.gnu.org/packages/")
+                         ("org"          . "https://orgmode.org/elpa/")
                          ("marmalade"    . "https://marmalade-repo.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
@@ -118,3 +118,20 @@
 ;(global-set-key (kbd "\C-n") 'previous-buffer)
 ;(global-set-key (kbd "\C-m") 'next-buffer)
 ;(global-set-key (kbd "\C-p") 'ido-recentf-open)
+
+;; - Emacs-w64 -
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (rainbow-delimiters relative-line-numbers zenburn-theme smooth-scrolling smart-mode-line ido-vertical-mode ido-better-flex ido-ubiquitous evil-nerd-commenter evil-leader evil))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
