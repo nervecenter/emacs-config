@@ -15,9 +15,8 @@
              smart-mode-line
              smooth-scrolling
              zenburn-theme
-	     relative-line-numbers
+	     nlinum-relative
 	     rainbow-delimiters
-	     ;;tabbar
 	     ))
 
 ;; Set the archive sources
@@ -25,7 +24,8 @@
                          ("gnu"          . "https://elpa.gnu.org/packages/")
                          ("org"          . "https://orgmode.org/elpa/")
                          ("marmalade"    . "https://marmalade-repo.org/packages/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")))
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")
+			 ("melpa"        . "https://melpa.org/packages/")))
 
 ;; Activate all the packages (in particular autoloads)
 (package-initialize)
@@ -48,6 +48,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (show-paren-mode t)
+(hl-line-mode t)
 
 ;;
 ;; Package Settings
@@ -101,19 +102,18 @@
 ;; - Rainbow Delimiters -
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-;; - Relative Line Numbers -
-(add-hook 'prog-mode-hook 'relative-line-numbers-mode t)
-(add-hook 'prog-mode-hook 'line-number-mode t)
-(add-hook 'prog-mode-hook 'column-number-mode t)
+;; - nlinum -
+(require 'nlinum-relative)
+(nlinum-relative-setup-evil)
+(add-hook 'prog-mode-hook 'nlinum-relative-mode)
+(setq nlinum-relative-redisplay-delay 0)
+(setq nlinum-relative-current-symbol "")
+(setq nlinum-relative-offset 0)
 
 ;; - Smooth Scrolling -
 (setq scroll-margin 5
       scroll-conservatively 9999
       scroll-step 1)
-
-;; - TabBar -
-;;(require 'tabbar)
-;;(tabbar-mode t)
 
 ;;
 ;; Keybinds
