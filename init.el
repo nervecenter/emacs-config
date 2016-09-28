@@ -16,7 +16,9 @@
              smooth-scrolling
              zenburn-theme
 	     relative-line-numbers
-	     rainbow-delimiters))
+	     rainbow-delimiters
+	     ;;tabbar
+	     ))
 
 ;; Set the archive sources
 (setq package-archives '(("elpa"         . "https://tromey.com/elpa/")
@@ -62,6 +64,7 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 (ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
 (defun ido-recentf-open ()
   "Use `ido-completing-read' to find a recent file."
@@ -107,6 +110,10 @@
 (setq scroll-margin 5
       scroll-conservatively 9999
       scroll-step 1)
+
+;; - TabBar -
+;;(require 'tabbar)
+;;(tabbar-mode t)
 
 ;;
 ;; Keybinds
