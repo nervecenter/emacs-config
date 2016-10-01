@@ -5,27 +5,29 @@
 (require 'package)
 
 ;; List packages to download
-(setq package-list '(evil
-             evil-leader
-             evil-nerd-commenter
-             ido
-             ido-ubiquitous
-             ido-better-flex
-             ido-vertical-mode
-             smart-mode-line
-             smooth-scrolling
-             zenburn-theme
-	     nlinum-relative
-	     rainbow-delimiters
-	     ))
+(setq package-list
+      '(evil
+	evil-leader
+	evil-nerd-commenter
+	ido
+	ido-ubiquitous
+	ido-better-flex
+	ido-vertical-mode
+	smart-mode-line
+	smooth-scrolling
+	zenburn-theme
+	nlinum-relative
+	rainbow-delimiters
+	))
 
 ;; Set the archive sources
-(setq package-archives '(("elpa"         . "https://tromey.com/elpa/")
-                         ("gnu"          . "https://elpa.gnu.org/packages/")
-                         ("org"          . "https://orgmode.org/elpa/")
-                         ("marmalade"    . "https://marmalade-repo.org/packages/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")
-			 ("melpa"        . "https://melpa.org/packages/")))
+(setq package-archives
+      '(("elpa"         . "https://tromey.com/elpa/")
+	("gnu"          . "https://elpa.gnu.org/packages/")
+	("org"          . "https://orgmode.org/elpa/")
+	("marmalade"    . "https://marmalade-repo.org/packages/")
+	("melpa-stable" . "https://stable.melpa.org/packages/")
+	("melpa"        . "https://melpa.org/packages/")))
 
 ;; Activate all the packages (in particular autoloads)
 (package-initialize)
