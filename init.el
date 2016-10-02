@@ -9,7 +9,7 @@
 
 (package-initialize)
 
-;; Bootstrap `use-package'
+;; Managing packages with use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -35,14 +35,12 @@
 ;; Package Settings
 ;;
 
-;; - RecentF -
 (use-package recentf
   :ensure t
   :init
   (recentf-mode 1)
   (setq recentf-max-menu-items 25))
 
-;; - Ido -
 (use-package ido
   :config
   (use-package ido-ubiquitous
@@ -64,9 +62,6 @@
         (message "Opening file...")
       (message "Aborting"))))
 
-;; - Evil -
-
-;; evil-leader bindings
 (use-package evil
   :ensure t
   :config
@@ -91,19 +86,16 @@
   (kill-buffer "*Messages*"))
 
 
-;; - Smart Mode Line -
 (use-package smart-mode-line
   :ensure t
   :init
   (sml/setup))
 
-;; - Rainbow Delimiters -
 (use-package rainbow-delimiters
   :ensure t
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-;; - nlinum -
 (use-package nlinum
   :ensure t
   :init
@@ -114,7 +106,6 @@
         nlinum-relative-current-symbol "")
         nlinum-relative-offset 0)
 
-;; - Smooth Scrolling -
 (use-package smooth-scrolling
   :ensure t
   :init
