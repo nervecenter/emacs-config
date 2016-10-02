@@ -18,7 +18,9 @@
 ;; Emacs Settings
 ;;
 
-(set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline-11")
+;;(set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline-11")
+(add-to-list 'default-frame-alist
+             '(font . "DejaVu Sans Mono for Powerline-10"))
 (load-theme 'zenburn t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -27,6 +29,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
+(windmove-default-keybindings)
 
 ;;
 ;; Package Settings
