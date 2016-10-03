@@ -19,8 +19,11 @@
 ;;
 
 ;;(set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline-11")
-(add-to-list 'default-frame-alist
-             '(font . "DejaVu Sans Mono for Powerline-10"))
+(if (<= 1080 (display-pixel-width))
+    (add-to-list 'default-frame-alist
+                 '(font . "DejaVu Sans Mono for Powerline-11"))
+  (add-to-list 'default-frame-alist
+               '(font . "DejaVu Sans Mono for Powerline-10")))
 (load-theme 'zenburn t)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -112,6 +115,20 @@
   (setq scroll-margin 5
         scroll-conservatively 9999
         scroll-step 1))
+
+(use-package paredit
+  :ensure t)
+
+(use-package org-mode
+  :ensure t)
+
+;; Language Modes
+
+(use-package haskell-mode
+  :ensure t)
+
+(use-package adoc-mode
+  :ensure t)
 
 ;;
 ;; Keybinds

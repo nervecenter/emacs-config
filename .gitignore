@@ -1,6 +1,8 @@
 /elpa
 recentf
 /auto-save-list
+/ido.last
+ido.last
 *.last
 *.data
 *~
