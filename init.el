@@ -19,7 +19,7 @@
 ;;
 
 ;;(set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline-11")
-(if (<= 1080 (display-pixel-width))
+(if (<= (display-pixel-width) 1080)
     (add-to-list 'default-frame-alist
                  '(font . "DejaVu Sans Mono for Powerline-11"))
   (add-to-list 'default-frame-alist
