@@ -18,13 +18,11 @@
 ;; Emacs Settings
 ;;
 
-;;(set-face-attribute 'default t :font "DejaVu Sans Mono for Powerline-11")
 (if (<= (display-pixel-width) 1080)
     (add-to-list 'default-frame-alist
-                 '(font . "DejaVu Sans Mono for Powerline-11"))
+                 '(font . "DejaVu Sans Mono for Powerline-10"))
   (add-to-list 'default-frame-alist
-               '(font . "DejaVu Sans Mono for Powerline-10")))
-(load-theme 'zenburn t)
+               '(font . "DejaVu Sans Mono for Powerline-11")))
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (show-paren-mode t)
@@ -38,9 +36,22 @@
 ;; Package Settings
 ;;
 
+
+;; Theme Packages
+
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (load-theme 'zenburn t))
+
+(use-package solarized-theme
+  :ensure t)
+
+;; Utility Packages
+
 (use-package recentf
   :ensure t
-  :init
+  :config
   (recentf-mode 1)
   (setq recentf-max-menu-items 25))
 
@@ -48,8 +59,8 @@
   :config
   (use-package ido-ubiquitous
     :ensure t)
-  (use-package ido-better-flex
-    :ensure t)
+  ;;(use-package ido-better-flex
+  ;;  :ensure t)
   (use-package ido-vertical-mode
     :ensure t)
   (setq ido-enable-flex-matching t
@@ -57,6 +68,7 @@
         ido-vertical-define-keys 'C-n-C-p-up-and-down)
   (ido-mode 1)
   (ido-vertical-mode 1)
+  ;;(ido-better-flex/enable)
 
   (defun ido-recentf-open ()
     "Use `ido-completing-read' to find a recent file."
@@ -91,7 +103,7 @@
 
 (use-package smart-mode-line
   :ensure t
-  :init
+  :config
   (sml/setup))
 
 (use-package rainbow-delimiters
@@ -99,19 +111,18 @@
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-(use-package nlinum
+(use-package nlinum-relative
   :ensure t
-  :init
+  :config
   (nlinum-relative-setup-evil)
   (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-  :config
   (setq nlinum-relative-redisplay-delay 0
         nlinum-relative-current-symbol "")
         nlinum-relative-offset 0)
 
 (use-package smooth-scrolling
   :ensure t
-  :init
+  :config
   (setq scroll-margin 5
         scroll-conservatively 9999
         scroll-step 1))
