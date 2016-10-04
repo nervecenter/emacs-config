@@ -130,7 +130,7 @@
 (use-package paredit
   :ensure t)
 
-(use-package org-mode
+(use-package org
   :ensure t)
 
 ;; Language Modes
