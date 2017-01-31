@@ -42,10 +42,16 @@
 (use-package zenburn-theme
   :ensure t
   :config
-  (load-theme 'zenburn t))
+  ;;(load-theme 'zenburn t)
+  )
 
 (use-package solarized-theme
   :ensure t)
+
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  (load-theme 'gruvbox t))
 
 ;; Utility Packages
 
@@ -53,7 +59,12 @@
   :ensure t
   :config
   (recentf-mode 1)
-  (setq recentf-max-menu-items 25))
+  (setq recentf-max-menu-items 25)
+  (setq recentf-exclude '("^/var/folders\\.*"
+                         "COMMIT_EDITMSG\\'"
+                         ".*-autoloads\\.el\\'"
+                         "[/\\]\\.elpa/"
+                         )))
 
 (use-package ido
   :config
@@ -111,14 +122,14 @@
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-(use-package nlinum-relative
-  :ensure t
-  :config
-  (nlinum-relative-setup-evil)
-  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-  (setq nlinum-relative-redisplay-delay 0
-        nlinum-relative-current-symbol "")
-        nlinum-relative-offset 0)
+;;(use-package nlinum-relative
+;;  :ensure t
+;;  :config
+;;  (nlinum-relative-setup-evil)
+;;  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
+;;  (setq nlinum-relative-redisplay-delay 0
+;;        nlinum-relative-current-symbol ""
+;;        nlinum-relative-offset 0))
 
 (use-package smooth-scrolling
   :ensure t
@@ -134,6 +145,9 @@
   :ensure t)
 
 ;; Language Modes
+
+(use-package d-mode
+  :ensure t)
 
 (use-package haskell-mode
   :ensure t)
