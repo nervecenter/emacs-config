@@ -31,6 +31,7 @@
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 (windmove-default-keybindings)
+(setq-default indent-tabs-mode 0)
 
 ;;
 ;; Package Settings
@@ -144,10 +145,25 @@
 (use-package org
   :ensure t)
 
+
+;; Language settings for hooks
+
+(defun c-like-settings ()
+  (setq tab-width 4)
+  (setq truncate-lines 0))
+
+(defun lisp-like-settings ()
+  (setq tab-width 2))
+
+;; To convert tabs to spaces, M-x untabify
+
+
 ;; Language Modes
 
 (use-package d-mode
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'd-mode-hook 'c-like-settings))
 
 (use-package haskell-mode
   :ensure t)
