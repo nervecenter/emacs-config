@@ -116,7 +116,8 @@
 (use-package smart-mode-line
   :ensure t
   :config
-  (sml/setup))
+  (sml/setup)
+  (setq column-number-mode 1))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -137,7 +138,9 @@
   :config
   (setq scroll-margin 5
         scroll-conservatively 9999
-        scroll-step 1))
+        scroll-step 1
+		mouse-wheel-scroll-amount '(3 ((shift) . 3))
+		mouse-wheel-progressive-speed nil))
 
 (use-package paredit
   :ensure t)
