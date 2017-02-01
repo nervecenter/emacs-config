@@ -64,6 +64,7 @@
   (setq recentf-exclude '("^/var/folders\\.*"
                          "COMMIT_EDITMSG\\'"
                          ".*-autoloads\\.el\\'"
+                         "ido\\.last\\'"
                          "[/\\]\\.elpa/"
                          )))
 
