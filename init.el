@@ -19,10 +19,15 @@
 ;;
 
 (if (<= (display-pixel-width) 1080)
+;;    (add-to-list 'default-frame-alist
+;;                 '(font . "DejaVu Sans Mono for Powerline-10"))
+;;  (add-to-list 'default-frame-alist
+;;               '(font . "DejaVu Sans Mono for Powerline-11"))
     (add-to-list 'default-frame-alist
-                 '(font . "DejaVu Sans Mono for Powerline-10"))
+                 '(font . "Fira Mono-10"))
   (add-to-list 'default-frame-alist
-               '(font . "DejaVu Sans Mono for Powerline-11")))
+               '(font . "Fira Mono-11"))
+  )
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (show-paren-mode t)
@@ -32,6 +37,8 @@
 (setq indent-line-function 'insert-tab)
 (windmove-default-keybindings)
 (setq-default indent-tabs-mode 0)
+(setq-default c-basic-offset 4)
+
 
 ;;
 ;; Package Settings
@@ -154,7 +161,9 @@
 
 (defun c-like-settings ()
   (setq tab-width 4)
-  (setq truncate-lines 0))
+  (setq truncate-lines 0)
+  (setq c-basic-offset 4)
+  (setq indent-tabs-mode 0))
 
 (defun lisp-like-settings ()
   (setq tab-width 2))
