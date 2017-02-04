@@ -122,11 +122,13 @@
       "w" 'delete-other-windows
       "n" 'previous-buffer
       "m" 'next-buffer
+      "o" 'other-window
     ))
   (evil-mode nil)
   (global-evil-leader-mode)
   (evil-mode 1)
-  (kill-buffer "*Messages*"))
+  (kill-buffer "*Messages*")
+  (add-to-list 'evil-emacs-state-modes 'term-mode))
 
 
 (use-package smart-mode-line
