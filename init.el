@@ -142,15 +142,6 @@
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-;;(use-package nlinum-relative
-;;  :ensure t
-;;  :config
-;;  (nlinum-relative-setup-evil)
-;;  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-;;  (setq nlinum-relative-redisplay-delay 0
-;;        nlinum-relative-current-symbol ""
-;;        nlinum-relative-offset 0))
-
 (use-package smooth-scrolling
   :ensure t
   :config
@@ -194,16 +185,6 @@
 (use-package adoc-mode
   :ensure t)
 
-;;
-;; Keybinds
-;;
-
-;(dolist (key '("\C-n" "\C-m" "\C-p"))
-;  (global-unset-key key))
-
-;(global-set-key (kbd "\C-n") 'previous-buffer)
-;(global-set-key (kbd "\C-m") 'next-buffer)
-;(global-set-key (kbd "\C-p") 'ido-recentf-open)
 
 ;; - Emacs-w64 and Emacs Mac -
 
