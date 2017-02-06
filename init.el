@@ -13,6 +13,8 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
 
 ;;
 ;; Emacs Settings
@@ -65,7 +67,7 @@
   :ensure t
   :config
   ;;(load-theme 'solarized t)
-  (load-theme 'solarized-light t)
+  ;;(load-theme 'solarized-light t)
   )
 
 (use-package gruvbox-theme
@@ -135,6 +137,10 @@
   (kill-buffer "*Messages*")
   (add-to-list 'evil-emacs-state-modes 'term-mode))
 
+(use-package auto-complete
+  :ensure t
+  :config
+  (ac-config-default))
 
 (use-package smart-mode-line
   :ensure t
@@ -190,6 +196,7 @@
 (use-package adoc-mode
   :ensure t)
 
+(load-theme 'solarized-light t)
 
 ;; - Emacs-w64 and Emacs Mac -
 
