@@ -70,24 +70,21 @@
 
 ;; Theme Packages
 
-(use-package zenburn-theme
-  :ensure t
-  :config
-  ;;(load-theme 'zenburn t)
-  )
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'zenburn t))
 
 (use-package solarized-theme
   :ensure t
   :config
   ;;(load-theme 'solarized t)
-  ;;(load-theme 'solarized-light t)
-  )
+  (load-theme 'solarized-light t))
 
-(use-package gruvbox-theme
-  :ensure t
-  :config
-  (load-theme 'gruvbox t)
-  )
+;; (use-package gruvbox-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruvbox t))
 
 ;; Utility Packages
 
@@ -128,6 +125,8 @@
 (use-package evil
   :ensure t
   :config
+  (use-package evil-nerd-commenter
+	:ensure t)
   (use-package evil-leader
     :ensure t
     :config
@@ -149,6 +148,10 @@
       "m" 'next-buffer
       "o" 'other-window
       "u" 'revert-buffer-no-confirm
+	  ;; Nerd Commenter bindings
+	  "cc" 'evilnc-comment-or-uncomment-lines
+	  ;; "cr" 'comment-or-uncomment-region
+	  ;; "cp" 'evilnc-comment-or-uncomment-paragraphs
     ))
   (evil-mode nil)
   (global-evil-leader-mode)
@@ -258,7 +261,7 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-	(rainbow-delimiters relative-line-numbers zenburn-theme smooth-scrolling smart-mode-line ido-vertical-mode ido-better-flex ido-ubiquitous evil-nerd-commenter evil-leader evil)))
+	(use-package rainbow-delimiters relative-line-numbers zenburn-theme smooth-scrolling smart-mode-line ido-vertical-mode ido-better-flex ido-ubiquitous evil-nerd-commenter evil-leader evil)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
