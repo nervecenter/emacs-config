@@ -20,38 +20,47 @@
 ;; Emacs Settings
 ;;
 
+;; Set font, bigger for high-DPI displays
 (if (<= (display-pixel-width) 1080)
-;;    (add-to-list 'default-frame-alist
-;;                 '(font . "DejaVu Sans Mono for Powerline-10"))
-;;  (add-to-list 'default-frame-alist
-;;               '(font . "DejaVu Sans Mono for Powerline-11"))
     (add-to-list 'default-frame-alist
-                 '(font . "Fira Mono-10"))
+                 '(font . "Fira Mono-10")
+				 ;'(font . "DejaVu Sans Mono for Powerline-10")
+				 )
   (add-to-list 'default-frame-alist
-               '(font . "Fira Mono-11"))
-  )
+               '(font . "Fira Mono-11")
+			   ;'(font . "DejaVu Sans Mono for Powerline-11")
+			   ))
+;; Turn off toolbar, scrollbar
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+;; Highlight matching parens, highlight current line
 (show-paren-mode t)
 (hl-line-mode t)
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
+;; Move between windows with Shift+<Arrow keys>
 (windmove-default-keybindings)
-(setq-default indent-tabs-mode 0)
-(setq-default c-basic-offset 4)
-(setq inhibit-splash-screen t
-      initial-scratch-message nil
-	  initial-major-mode 'text-mode)
 ;; Save all tempfiles in $TMPDIR/emacs$UID/
 (defconst emacs-tmp-dir
   (format "%s/%s%s/"
 		  temporary-file-directory
 		  "emacs"
 		  (user-uid)))
-(setq backup-directory-alist `((".*" . ,emacs-tmp-dir)))
-(setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
-(setq auto-save-list-file-prefix emacs-tmp-dir)
+;; Quantities
+(setq-default
+ indent-tabs-mode nil
+ tab-width 4
+ indent-tabs-mode 0
+ c-basic-offset 4
+ )
+(setq
+ indent-line-function 'insert-tab
+ inhibit-splash-screen t
+ initial-scratch-message nil
+ initial-major-mode 'text-mode
+ backup-directory-alist `((".*" . ,emacs-tmp-dir))
+ auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t))
+ auto-save-list-file-prefix emacs-tmp-dir
+ )
+
 
 
 ;;
