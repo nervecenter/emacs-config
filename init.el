@@ -53,6 +53,7 @@
 (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix emacs-tmp-dir)
 
+
 ;;
 ;; Package Settings
 ;;
@@ -121,6 +122,11 @@
   (use-package evil-leader
     :ensure t
     :config
+	(defun revert-buffer-no-confirm ()
+	  "Revert buffer without confirmation."
+	  (interactive)
+	  (revert-buffer :ignore-auto :noconfirm)
+	  (message "Updated buffer."))
     (setq evil-leader/in-all-states 1)
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
@@ -133,6 +139,7 @@
       "n" 'previous-buffer
       "m" 'next-buffer
       "o" 'other-window
+      "u" 'revert-buffer-no-confirm
     ))
   (evil-mode nil)
   (global-evil-leader-mode)
