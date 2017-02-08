@@ -40,6 +40,9 @@
 (windmove-default-keybindings)
 (setq-default indent-tabs-mode 0)
 (setq-default c-basic-offset 4)
+(setq inhibit-splash-screen t
+      initial-scratch-message nil
+	  initial-major-mode 'text-mode)
 ;; Save all tempfiles in $TMPDIR/emacs$UID/
 (defconst emacs-tmp-dir
   (format "%s/%s%s/"
@@ -73,7 +76,7 @@
 (use-package gruvbox-theme
   :ensure t
   :config
-  ;;(load-theme 'gruvbox t)
+  (load-theme 'gruvbox t)
   )
 
 ;; Utility Packages
@@ -196,7 +199,6 @@
 (use-package adoc-mode
   :ensure t)
 
-(load-theme 'solarized-light t)
 
 ;; - Emacs-w64 and Emacs Mac -
 
