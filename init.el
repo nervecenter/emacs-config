@@ -75,16 +75,16 @@
 ;;   :config
 ;;   (load-theme 'zenburn t))
 
-(use-package solarized-theme
-  :ensure t
-  :config
-  ;;(load-theme 'solarized t)
-  (load-theme 'solarized-light t))
-
-;; (use-package gruvbox-theme
+;; (use-package solarized-theme
 ;;   :ensure t
 ;;   :config
-;;   (load-theme 'gruvbox t))
+;;   ;;(load-theme 'solarized t)
+;;   (load-theme 'solarized-light t))
+
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  (load-theme 'gruvbox t))
 
 ;; Utility Packages
 
@@ -194,13 +194,16 @@
 ;; Language settings for hooks
 
 (defun c-like-settings ()
-  (setq tab-width 4)
-  (setq truncate-lines 0)
-  (setq c-basic-offset 4)
-  (setq indent-tabs-mode 0))
+  (setq tab-width 4
+		truncate-lines 0
+		c-basic-offset 4
+		indent-tabs-mode 0))
 
 (defun lisp-like-settings ()
-  (setq tab-width 2))
+  (setq tab-width 2
+		truncate-lines 0
+		lisp-basic-offset 2
+		indent-tabs-mode 0))
 
 ;; To convert tabs to spaces, M-x untabify
 
@@ -211,6 +214,11 @@
   :ensure t
   :config
   (add-hook 'd-mode-hook 'c-like-settings))
+
+(use-package clojure-mode
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook 'lisp-like-settings))
 
 (use-package haskell-mode
   :ensure t)
