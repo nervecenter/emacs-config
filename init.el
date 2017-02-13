@@ -5,7 +5,8 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/")
+			 '("gnu"  . "https://elpa.gnu.org/packages/"))
 
 (package-initialize)
 
@@ -122,6 +123,14 @@
         (message "Opening file...")
       (message "Aborting"))))
 
+(use-package company
+  :ensure t
+  :pin gnu
+  :config
+  (use-package company-dcd
+	:ensure t)
+  (add-hook 'after-init-hook 'global-company-mode))
+
 (use-package evil
   :ensure t
   :config
@@ -159,10 +168,10 @@
   (kill-buffer "*Messages*")
   (add-to-list 'evil-emacs-state-modes 'term-mode))
 
-(use-package auto-complete
-  :ensure t
-  :config
-  (ac-config-default))
+;; (use-package auto-complete
+;;   :ensure t
+;;   :config
+;;   (ac-config-default))
 
 (use-package smart-mode-line
   :ensure t
@@ -213,7 +222,8 @@
 (use-package d-mode
   :ensure t
   :config
-  (add-hook 'd-mode-hook 'c-like-settings))
+  (add-hook 'd-mode-hook 'c-like-settings)
+  (add-hook 'd-mode-hook 'company-dcd-mode))
 
 (use-package clojure-mode
   :ensure t
