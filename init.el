@@ -46,19 +46,19 @@
 		  (user-uid)))
 ;; Quantities
 (setq-default
- indent-tabs-mode nil
- tab-width 4
- indent-tabs-mode 0
- c-basic-offset 4
+ indent-tabs-mode  nil
+ tab-width         4
+ indent-tabs-mode  0
+ c-basic-offset    4
  )
 (setq
- indent-line-function 'insert-tab
- inhibit-splash-screen t
- initial-scratch-message nil
- initial-major-mode 'text-mode
- backup-directory-alist `((".*" . ,emacs-tmp-dir))
- auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t))
- auto-save-list-file-prefix emacs-tmp-dir
+ indent-line-function            'insert-tab
+ inhibit-splash-screen           t
+ initial-scratch-message         nil
+ initial-major-mode              'text-mode
+ backup-directory-alist          `((".*" . ,emacs-tmp-dir))
+ auto-save-file-name-transforms  `((".*" ,emacs-tmp-dir t))
+ auto-save-list-file-prefix      emacs-tmp-dir
  )
 
 
