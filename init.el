@@ -220,6 +220,11 @@
   :config
   (add-hook 'clojure-mode-hook 'lisp-like-settings))
 
+(use-package racket-mode
+  :ensure t
+  :config
+  (add-hook 'racket-mode-hook 'lisp-like-settings))
+
 (use-package haskell-mode
   :ensure t)
 
