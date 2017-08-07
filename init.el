@@ -102,7 +102,7 @@
 
 (use-package ido
   :config
-  (use-package ido-ubiquitous
+  (use-package ido-completing-read
     :ensure t)
   ;;(use-package ido-better-flex
   ;;  :ensure t)
