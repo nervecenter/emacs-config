@@ -3,6 +3,7 @@ recentf
 /auto-save-list
 /ido.last
 ido.last
+custom.el
 *.last
 *.data
 *~
